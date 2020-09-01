@@ -92,6 +92,34 @@ dataBrood1=subset(dataDaphnia,Death1 == "no")
 dataBrood2=subset(dataDaphnia,Death2 == "no")
 
 
+######Chlorpyrifos concentration after 24 hours######
+
+set_sum_contrasts()
+lmCPFint=lm(Concentration ~ DTV*Competition, data=dataCPF24, na.action=na.omit) 
+Anova(lmCPFint, type="III") 
+#interaction between DTV and interspecific competition was not significant (F2,12 = 0.30, P = 0.74)
+
+#DTV × Competition interaction was removed from the model testing for effects on the chlorpyrifos concentration after 24 h due to limited amount of replicates
+set_treatment_contrasts()
+lmCPFmain=lm(Concentration ~ DTV+Competition, data=dataCPF24, na.action=na.omit) 
+Anova(lmCPFmain, type="II") 
+
+AIC(lmCPFint, lmCPFmain)
+#model without the interaction also had a lower AIC score
+#lmCPFmain is used as a final model in the article
+
+#emmeans and s.e. used to make Figure 3
+emmeans(lmCPFmain, ~ DTV+Competition, type="response")
+
+#assumptions
+shapiro.test(resid(lmCPFmain)) #OK                
+hist(resid(lmCPFmain))    
+qqnorm(resid(lmCPFmain))    
+qqline(resid(lmCPFmain))     
+leveneTest(Concentration ~ DTV, data = dataCPF24) #OK
+leveneTest(Concentration ~ Competition, data = dataCPF24) #OK
+
+
 ######Culex pipiens - Chlorpyrifos range finder######
 #drc::drm --> function drm from the package drc
 #Concentration needs to be numeric (nominal concentrations are used and not measured concentrations!)
@@ -140,34 +168,6 @@ plotTime=plot(EC96L4, type="confidence", log="", add=TRUE)
 plotTime=plot(EC120L4, type="confidence", log="", add=TRUE)
 plotTime=plot(EC144L4, type="confidence", log="", add=TRUE)
 plotTime=plot(EC168L4, type="confidence", log="", add=TRUE)
-
-
-######Chlorpyrifos concentration after 24 hours######
-
-set_sum_contrasts()
-lmCPFint=lm(Concentration ~ DTV*Competition, data=dataCPF24, na.action=na.omit) 
-Anova(lmCPFint, type="III") 
-#interaction between DTV and interspecific competition was not significant (F2,12 = 0.30, P = 0.74)
-
-#DTV × Competition interaction was removed from the model testing for effects on the chlorpyrifos concentration after 24 h due to limited amount of replicates
-set_treatment_contrasts()
-lmCPFmain=lm(Concentration ~ DTV+Competition, data=dataCPF24, na.action=na.omit) 
-Anova(lmCPFmain, type="II") 
-
-AIC(lmCPFint, lmCPFmain)
-#model without the interaction also had a lower AIC score
-#lmCPFmain is used as a final model in the article
-
-#emmeans and s.e. used to make Figure 3
-emmeans(lmCPFmain, ~ DTV+Competition, type="response")
-
-#assumpties ok?
-shapiro.test(resid(lmCPFmain)) #OK                
-hist(resid(lmCPFmain))    
-qqnorm(resid(lmCPFmain))    
-qqline(resid(lmCPFmain))     
-leveneTest(Concentration ~ DTV, data = dataCPF24) #OK
-leveneTest(Concentration ~ Competition, data = dataCPF24) #OK
 
 
 ######Culex pipiens - Total Survival######
