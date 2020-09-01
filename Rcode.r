@@ -435,6 +435,7 @@ rList
 unique(daphnia_growth$Vial)
 #collect data in a new excel file
 
+
 ######Daphnia magna - Lambda - Appendix B######
 #lambda calculated as lambda = exp(r)
 #This has as advantage that it is possible to calculate lambda 
