@@ -28,6 +28,19 @@ library(lmerTest)
 #problem: gives errors when running rbind for contrast tests; 
 #restart needed and no reloading of this package when running contrast analysis
 
+#Versions of the packages used
+R.version #v3.6.1
+packageVersion("lme4") #v1.1.23
+packageVersion("afex") #v0.27.2
+packageVersion("car") #v3.0.8
+packageVersion("effects") #v4.1.4
+packageVersion("emmeans") #v4.1.4
+packageVersion("drc") #v3.0.1
+packageVersion("doBy") #v4.6.6
+packageVersion("dplyr") #v0.8.5
+packageVersion("lmerTest") #v3.1.2
+
+
 ######Import datasets######
 
 ###Chlorpyrifos
