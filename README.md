@@ -4,6 +4,8 @@ R code for 'Daily temperature variation lowers the lethal and sublethal impact o
 Delnat V., Verborgt J., Janssens L., and Stoks R. (2021). 
 Chemosphere, 263: 128114 https://doi.org/10.1016/j.chemosphere.2020.128114
 
+Mendeley Data: https://data.mendeley.com/datasets/fy4zpszpcx
+
 ## R code
 * Chlorpyrifos concentration after 24 hours (L96)
 * *Culex pipiens* - Chlorpyrifos range finder (L124)
