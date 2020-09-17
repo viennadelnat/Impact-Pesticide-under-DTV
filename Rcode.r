@@ -1,5 +1,6 @@
 #Daily temperature variation lowers the lethal and sublethal impact of a pesticide pulse due to a higher degradation rate 
-#Vienna Delnat, Jonathan Verborgt, Lizanne Janssens & Robby Stoks
+#Delnat V., Verborgt J., Janssens L., and Stoks R. (2021).
+#Chemosphere, 263: 128114 https://doi.org/10.1016/j.chemosphere.2020.128114
 #R code tested on 01/09/2020
 
 ######Packages######
