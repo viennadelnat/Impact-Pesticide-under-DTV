@@ -629,7 +629,3 @@ hist(resid(TimeSecondBrood))
 qqnorm(resid(TimeSecondBrood))    
 qqline(resid(TimeSecondBrood))     
 leveneTest(TimeTillSecondBrood~Chlorpyrifos*DTV*Competition, data = dataBrood2) #OK
-
-
-######Save Rdata######
-save.image(file="Delnat et al_Impact of Pesticide under DTV_20200901.Rdata")
