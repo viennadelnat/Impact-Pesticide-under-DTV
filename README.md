@@ -1,4 +1,4 @@
-# Impact-Pesticide-under-DTV
+# Impact-Pesticide-under-DTV-interspecific-competition
 R code for 'Daily temperature variation lowers the lethal and sublethal impact of a pesticide pulse due to a higher degradation rate' 
 
 Delnat V., Verborgt J., Janssens L., and Stoks R. (2021). 
